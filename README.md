@@ -9,9 +9,9 @@
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :groups, through: :group_users
-- has_many :users, through: :group_users
-- accepts_nested_attributes_for :group_users
+- has_many :groups
+- has_many :users
+
 
 ## usersテーブル
 |Column|Type|Options|
@@ -24,7 +24,7 @@
 ### Association
 - has_many :groups, through: :group_users
 - has_many :messages
-- accepts_nested_attributes_for :group_users
+- accepts_nested_attributes_for :members
 
 ## groupsテーブル
 
@@ -35,7 +35,7 @@
 ### Association
 - has_many :users, through: :group_users
 - has_many :messages
-- accepts_nested_attributes_for :group_users
+- accepts_nested_attributes_for :members
 
 ## membersテーブル
 
