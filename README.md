@@ -4,7 +4,6 @@
 |------|----|-------|
 |body|text| |
 |image|string| |
-|created_at|datetime|null: false|
 |group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 
@@ -22,27 +21,27 @@
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :groups, through: :group_users
+- has_many :groups, through: :members
 - has_many :messages
-- accepts_nested_attributes_for :members
+- has_many :members
 
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false, unique: true|
+|name|string|null: false, unique: true|
 
 ### Association
-- has_many :users, through: :group_users
+- has_many :users, through: :members
 - has_many :messages
-- accepts_nested_attributes_for :members
+- has_many :members
 
 ## membersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|group_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
