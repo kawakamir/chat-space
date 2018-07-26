@@ -6,5 +6,73 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
   %body
+    .top-header
+      チャットグループが作成されました。
+
+    #header
+      #header__name
+        %p
+          kawakami
+        %i.fa.fa-cog
+        %i.fa.fa-edit
+
+      #header__menu
+        %h1
+          sample
+        %h2
+          Members: kawakami, taguchi
+        .editbox
+          %p
+            Edit
+
+
+    .contents
+      .side-bar
+        .group1
+          %h3
+            a1
+          %h4
+            aaaa1
+        .group2
+          %h3
+            a2
+          %h4
+            aaaa2
+
+
+
+      .right-contents
+        .messages1
+          .messages1__name
+            %table
+              %tr
+                %th.name
+                  川上
+                %th.days
+                  2018/07/26
+          .messages1__message
+            コメント
+        .messages2
+          .messages2__name
+            %table
+              %tr
+                %th.name
+                  川上
+                %th.days
+                  2018/07/26
+          .messages2__message
+            コメント
+      .footer
+        .boxes
+          .text-box
+            %p
+              type a message
+          .send-box
+            %p
+              Send
+          %i.fa.fa-image
+
+
     = yield
