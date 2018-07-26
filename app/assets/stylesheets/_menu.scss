@@ -1,0 +1,70 @@
+
+#header {
+  height: 96px;
+  padding-top: 28px;
+  width: 100%;
+  background-color: #e8e8e8;
+  border-bottom: inset 1px #eeeeee;
+  &__name {
+    background-color: #253141;
+    float: left;
+    position: relative;
+    height: 96px;
+    width: 300px;
+    color: $mainWhiteColor;
+    p {
+      position: absolute;
+      @include boxBase();
+      top: 35px;
+      font-size: 16px;
+    }
+    i.fa.fa-cog {
+      position: absolute;
+      right: 40px;
+      top: 35px;
+    }
+    i.fa.fa-edit {
+      position: absolute;
+      right: 60px;
+      top: 35px;
+    }
+  }
+  &__menu {
+    position: relative;
+    float: left;
+    height: 96px;
+    width: calc(100% - 300px);
+    background-color: #e8e8e8;
+    h1 {
+      @include boxBase(40px, 40px);
+      position: absolute;
+      top: 35px;
+      color: #333333;
+      font-size: 20px;
+    }
+
+    h2 {
+      @include boxBase(40px, 40px);
+      position: absolute;
+      top: 70px;
+      font-size: 12px;
+      color: #999999;
+    }
+    .editbox {
+      position: absolute;
+      top: 28px;
+      right:40px;
+      height: 40px;
+      p {
+        border: inset 3px #38AEF0;
+        color: #38AEF0;
+        font-size: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: solid 3px #38AEF0;
+      }
+
+
+  }
+  }
+}
