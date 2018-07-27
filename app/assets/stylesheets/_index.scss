@@ -1,0 +1,109 @@
+
+@import "./colors";
+
+.contents {
+  height: 100vh;
+  width: 100%;
+  background-color: #e8e8e8;
+
+  .side-bar{
+    float: left;
+    background-color: #2f3e51;
+    height: 100%;
+    width: 300px;
+    color: $mainWhiteColor;
+
+    .group_boxes{
+      @include boxBase();
+      position: relative;
+      height: 91px;
+      h3 {
+        position: absolute;
+        top: 20px;
+        font-size: 15px
+      }
+      h4 {
+        position: absolute;
+        top: 40px;
+        font-size: 11px;
+      }
+    }
+  }
+
+  .right-contents {
+    float: right;
+    width: calc(100% - 300px);
+    .messages {
+      position: relative;
+      height: 126px;
+      width: 100%;
+      &__name {
+        @include boxBase(40px, 40px);
+        position: absolute;
+        top: 46px;
+        tr {
+          height: 16px;
+          th.name {
+            padding-right: 10px;
+            color: $skyBlue;
+            font-size: 16px;
+          }
+          th.days {
+            color: #999999;
+            font-size: 12px;
+          }
+        }
+      }
+      &__message {
+        @include boxBase(40px, 40px);
+        position: absolute;
+        top: 72px;
+        color: $skyBlue;
+        font-size: 14px;
+      }
+    }
+  }
+  .footer {
+    position: fixed;
+    background-color: $skyBlue;
+    bottom: 0;
+    right: 0;
+    height: 90px;
+    width: calc(100% - 300px);
+    .boxes {
+      position: relative;
+      .text-box {
+        position: absolute;
+        top: 20px;
+        left: 40px;
+        height: 50px;
+        width: calc(100% - 165px);
+        background-color: #e8e8e8;
+        p {
+          line-height: 50px;
+          font-size: 16px;
+          color: $skyBlue;
+          padding-left: 10px;
+        }
+      }
+      .send-box {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        height: 50px;
+        width: 70px;
+        background-color: #38AEF0;
+        p {
+          font-size: 16px;
+          line-height: 50px;
+          text-align: center;
+        }
+      }
+      i.fa.fa-image {
+        position: absolute;
+        right: 135px;
+        top: 35px;
+      }
+    }
+  }
+}

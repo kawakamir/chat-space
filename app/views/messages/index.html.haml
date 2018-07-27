@@ -1,0 +1,19 @@
+
+=render 'notification'
+=render 'menu'
+.contents
+  .side-bar
+    =render 'group_boxes'
+
+  .right-contents
+    =render 'messages'
+  .footer
+    .boxes
+      .text-box
+        %p
+          type a message
+      .send-box
+        %p
+          Send
+      %i.fa.fa-image
+
