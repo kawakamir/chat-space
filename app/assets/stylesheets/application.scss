@@ -1,8 +1,10 @@
 @import "./reset";
 @import "font-awesome";
+@import "config/colors";
 @import "./boxBase";
-@import "./notification";
 @import "./index";
 @import "./colors";
 @import "./user";
 @import "./menu";
+@import "modules/flash";
+

@@ -18,15 +18,17 @@
       top: 35px;
       font-size: 16px;
     }
-    i.fa.fa-cog {
-      position: absolute;
-      right: 40px;
-      top: 35px;
-    }
-    i.fa.fa-edit {
-      position: absolute;
-      right: 60px;
-      top: 35px;
+    ul.edit_icons {
+      li.pencil {
+        position: absolute;
+        right: 40px;
+        top: 35px;
+      }
+      li.cog {
+        position: absolute;
+        right: 60px;
+        top: 35px;
+      }
     }
   }
   &__menu {
