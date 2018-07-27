@@ -1,5 +1,5 @@
 
-@import "./mainWhiteColor";
+@import "./colors";
 
 .contents {
   height: 100vh;
@@ -13,22 +13,7 @@
     width: 300px;
     color: $mainWhiteColor;
 
-    .group1{
-      @include boxBase();
-      position: relative;
-      height: 91px;
-      h3 {
-        position: absolute;
-        top: 20px;
-        font-size: 15px
-      }
-      h4 {
-        position: absolute;
-        top: 40px;
-        font-size: 11px;
-      }
-    }
-    .group2{
+    .group_boxes{
       @include boxBase();
       position: relative;
       height: 91px;
@@ -48,7 +33,7 @@
   .right-contents {
     float: right;
     width: calc(100% - 300px);
-    .messages1 {
+    .messages {
       position: relative;
       height: 126px;
       width: 100%;
@@ -60,7 +45,7 @@
           height: 16px;
           th.name {
             padding-right: 10px;
-            color: #434A54;
+            color: $skyBlue;
             font-size: 16px;
           }
           th.days {
@@ -73,43 +58,14 @@
         @include boxBase(40px, 40px);
         position: absolute;
         top: 72px;
-        color: #434A54;
-        font-size: 14px;
-      }
-    }
-    .messages2 {
-      position: relative;
-      height: 126px;
-      width: 100%;
-      &__name {
-        @include boxBase(40px, 40px);
-        position: absolute;
-        top: 46px;
-        tr {
-          height: 16px;
-          th.name {
-            padding-right: 10px;
-            color: #434A54;
-            font-size: 16px;
-          }
-          th.days {
-            color: #999999;
-            font-size: 12px;
-          }
-        }
-      }
-      &__message {
-        @include boxBase(40px, 40px);
-        position: absolute;
-        top: 72px;
-        color: #434A54;
+        color: $skyBlue;
         font-size: 14px;
       }
     }
   }
     .footer {
       position: fixed;
-      background-color: #434A54;
+      background-color: $skyBlue;
       bottom: 0;
       right: 0;
       height: 90px;
@@ -126,7 +82,7 @@
           p {
             line-height: 50px;
             font-size: 16px;
-            color: #434A54;
+            color: $skyBlue;
             padding-left: 10px;
           }
 
