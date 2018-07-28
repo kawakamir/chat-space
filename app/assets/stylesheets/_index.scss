@@ -11,18 +11,19 @@
     background-color: #2f3e51;
     height: 100%;
     width: 300px;
-    color: $mainWhiteColor;
 
     .group_boxes{
       @include boxBase();
       position: relative;
       height: 91px;
       h3 {
+        color: $mainWhiteColor;
         position: absolute;
         top: 20px;
         font-size: 15px
       }
       h4 {
+        color: $mainWhiteColor;
         position: absolute;
         top: 40px;
         font-size: 11px;
