@@ -5,8 +5,6 @@
     -current_user.groups.each do |group|
       =render partial: 'group_boxes', locals: { group: group}
 
-  .right-contents
-    =render 'messages'
   .footer
     .boxes
       .text-box

@@ -1,2 +1,17 @@
-.messages
-  = render @messages
+=render 'groups/menu'
+.contents
+  .side-bar
+    -current_user.groups.each do |group|
+      =render partial: 'groups/group_boxes', locals: { group: group}
+
+  .right-contents
+    =render @messages
+  .footer
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'

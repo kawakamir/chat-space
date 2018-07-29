@@ -6,9 +6,9 @@
         %th.name
           = message.user.name
         %th.days
-          = format_posted_time(message.created_at)
+          = message.created_at
   .messages__message
-    - if message.content.prisent?
+    - if message.content.present?
       %p.lower-message__content
         = message.content
     = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
