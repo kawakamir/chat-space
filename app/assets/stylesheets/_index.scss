@@ -56,11 +56,16 @@
         }
       }
       &__message {
-        @include boxBase(40px, 40px);
+        p.lower-message__content {
+          @include boxBase(40px, 40px);
         position: absolute;
         top: 72px;
         color: $skyBlue;
         font-size: 14px;
+        }
+        .lower-message_image {
+
+        }
       }
     }
   }
