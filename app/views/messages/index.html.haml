@@ -5,7 +5,8 @@
       =render partial: 'groups/group_boxes', locals: { group: group}
 
   .right-contents
-    =render @messages
+    .upper-content
+      =render @messages
     = form_for [@group, @message] do |f|
       .form
         = f.text_field :content, class: 'form__message', placeholder: 'type a message'
