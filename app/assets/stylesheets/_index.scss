@@ -35,36 +35,31 @@
     float: right;
     width: calc(100% - 300px);
     .messages {
-      position: relative;
-      height: 126px;
-      width: 100%;
-      &__name {
-        @include boxBase(40px, 40px);
-        position: absolute;
-        top: 46px;
-        tr {
-          height: 16px;
-          th.name {
-            padding-right: 10px;
-            color: $skyBlue;
+      background-color: #FAFAFA;
+      box-sizing: border-box;
+      padding: 46px 40px 0;
+      height: calc(100% - 100px - 90px);
+      .message {
+        .upper-message {
+          display: flex;
+          &__user-name {
+            color: $black;
             font-size: 16px;
+            font-weight: bold;
           }
-          th.days {
-            color: #999999;
+          &__date {
+            color: $light_gray;
             font-size: 12px;
+            padding-left: 10px;
           }
         }
-      }
-      &__message {
-        p.lower-message__content {
-          @include boxBase(40px, 40px);
-        position: absolute;
-        top: 72px;
-        color: $skyBlue;
-        font-size: 14px;
-        }
-        .lower-message_image {
-
+        .lower-message {
+          margin-top: 10px;
+          &__content {
+            color: $black;
+            font-size: 14px;
+            margin-bottom: 40px;
+          }
         }
       }
     }
