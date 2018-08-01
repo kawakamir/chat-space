@@ -24,9 +24,9 @@ $(function(){
                 </div>`;
     return html;
     }
+
   $("#new_message").on("submit", function(e){
     e.preventDefault();
-    console.log(this);
     var formData = new FormData(this);
     var href = $(this).attr('action')
     $.ajax({
@@ -40,8 +40,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.upper-content').append(html);
-      $('.form__message').val('');
-      $('#message_image').val('');
+      $('form')[0].reset();
       $('.right-contents').animate({scrollTop: $('#last_message').position().top}, 'fast');
     })
     .fail(function(){
