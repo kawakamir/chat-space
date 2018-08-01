@@ -4,7 +4,7 @@ $(function(){
     if (message.image.url) {
       insertImage = message.image.url;
     }
-    var html = `<div class="messages">
+    var html = `<div class="messages" id=last_message>
                   <div class="message">
                     <div class="upper-message">
                       <div class="upper-message__user-name">
@@ -42,9 +42,7 @@ $(function(){
       $('.upper-content').append(html);
       $('.form__message').val('');
       $('#message_image').val('');
-      $('.form__submit').prop('disabled', false);
-      var target = $('.form__submit');
-      $(window).scrollTop(target.offset().top);
+      $('.right-contents').animate({scrollTop: $('#last_message').position().top}, 'fast');
     })
     .fail(function(){
       alert('error');
