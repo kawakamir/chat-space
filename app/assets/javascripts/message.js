@@ -1,14 +1,14 @@
 $(function(){
   function buildHTML(message){
     var insertImage = '';
-  if (message.image.url) {
-    insertImage = `<img src="${message.image.url}">`;
-  }
+    if (message.image.url) {
+      insertImage = message.image.url;
+    }
     var html = `<div class="messages">
                   <div class="message">
                     <div class="upper-message">
                       <div class="upper-message__user-name">
-                        ${message.name}
+                        ${message.user_name}
                       </div>
                       <div class="upper-message__date">
                         ${message.created_at}
@@ -19,7 +19,7 @@ $(function(){
                     <p class="lower-message__content">
                       ${message.content}
                     </p>
-                  <img class="lower-message__image" src=${insertImage}>
+                    <img class="lower-message__image" src=${insertImage}>
                   </div>
                 </div>`;
     return html;
@@ -41,7 +41,7 @@ $(function(){
       var html = buildHTML(data);
       $('.upper-content').append(html);
       $('.form__message').val('');
-      $('.message_image').val('');
+      $('#message_image').val('');
       $('.form__submit').prop('disabled', false);
       var target = $('.form__submit');
       $(window).scrollTop(target.offset().top);
