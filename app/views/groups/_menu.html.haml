@@ -9,12 +9,13 @@
       %li.cog
         = link_to edit_user_path(current_user) do
           = fa_icon 'cog', class: 'icon'
-
-  #header__menu
-    %h1
-      sample
-    %h2
-      Members: kawakami, taguchi
-    .editbox
-      %p
-        Edit
+  - if @group.present?
+    #header__menu
+      %h1
+        = @group.name
+      %h2
+        - @group.users.each do |user|
+          = user.name
+      .editbox
+        %p
+          = link_to "EDIT", edit_group_path(@group.id), method: :get
