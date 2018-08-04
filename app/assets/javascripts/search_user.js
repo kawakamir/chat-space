@@ -54,14 +54,13 @@ function appendUserToGroup(userName, userId) {
   group_list.append(html)
 }
   $("#user-search-result").on("click", ".user-search-add",function() {
-    var userName = $(this).attr("data-user-name");
-    var userId = $(this).attr("data-user-id");
+    var userName = $(this).data("userName");
+    var userId = $(this).data("userId");
     appendUserToGroup(userName, userId);
-    $(this).parent(".chat-group-user").remove();
+    $(this).parent().remove();
   });
 
-  $("#chat-group-users").on("click", ".user-search-remove", function() {
-    console.log("hello!")
-    $(this).parent(".chat-group-user").remove();
+  $("#chat-group-users").on("click", ".js-remove-btn", function() {
+    $(this).parent().remove();
   });
 });
