@@ -4,7 +4,7 @@ $(function(){
     if (message.image.url) {
       insertImage = message.image.url;
     }
-    var html = `<div class="messages" id=last_message>
+    var html = `<div class="messages" id=messages_message_${message.id} data-message-id="${message.id}">
                   <div class="message">
                     <div class="upper-message">
                       <div class="upper-message__user-name">
@@ -28,7 +28,9 @@ $(function(){
   $("#new_message").on("submit", function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var href = $(this).attr('action')
+    var href = $(this).attr('action');
+
+
     $.ajax({
       type: 'POST',
       url: href,
@@ -41,10 +43,35 @@ $(function(){
       var html = buildHTML(data);
       $('.upper-content').append(html);
       $('form')[0].reset();
-      $('.right-contents').animate({scrollTop: $('#last_message').position().top}, 'fast');
+      $('.right-contents').animate({scrollTop: $('#messages_message_' + data.id).position().top}, 'fast');
     })
     .fail(function(){
       alert('error');
     });
   });
+  if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(function() {
+      var message_id = $('.messages:last').data('messageId');
+
+      $.ajax({
+        type: 'GET',
+        url: location.href,
+        data: {
+          message: {id: message_id}
+        },
+        dataType: 'json'
+      })
+      .done(function(messages) {
+        if (messages.length !== 0){
+          messages.forEach(function(message) {
+            index_html = buildHTML(message);
+            $('.upper-content').append(index_html);
+          });
+        }
+      })
+      .fail(function(messages){
+        alert('自動更新機能に失敗しました。')
+      });
+    }, 5000);
+  };
 })
