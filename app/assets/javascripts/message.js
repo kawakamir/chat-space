@@ -40,11 +40,10 @@ $(function(){
       contentType: false,
     })
     .done(function(data){
-      var id = data.id
       var html = buildHTML(data);
       $('.upper-content').append(html);
       $('form')[0].reset();
-      $('.right-contents').animate({scrollTop: $('#messages_message_' + id).position().top}, 'fast');
+      $('.right-contents').animate({scrollTop: $('#messages_message_' + data.id).position().top}, 'fast');
     })
     .fail(function(){
       alert('error');
