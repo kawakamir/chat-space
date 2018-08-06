@@ -4,7 +4,7 @@ $(function(){
     if (message.image.url) {
       insertImage = message.image.url;
     }
-    var html = `<div class="messages" id=last_message data-message-id="${message.id}">
+    var html = `<div class="messages" id=messages_message_${message.id} data-message-id="${message.id}">
                   <div class="message">
                     <div class="upper-message">
                       <div class="upper-message__user-name">
@@ -30,6 +30,7 @@ $(function(){
     var formData = new FormData(this);
     var href = $(this).attr('action');
 
+
     $.ajax({
       type: 'POST',
       url: href,
@@ -39,25 +40,15 @@ $(function(){
       contentType: false,
     })
     .done(function(data){
+      id = data.id
       var html = buildHTML(data);
       $('.upper-content').append(html);
       $('form')[0].reset();
-      $('.right-contents').animate({scrollTop: $('#last_message').position().top}, 'fast');
+      $('.right-contents').animate({scrollTop: $('#messages_message_' + id).position().top}, 'fast');
     })
     .fail(function(){
       alert('error');
     });
   });
 
-  setInterval(function() {
-    $ajax({
-      url: location.href.json
-    })
-    .done(function(data) {
-    })
-    .faile(function(data){
-    });
-  } else {
-    clearInterval(interval);
-  }, 5000);
 });
