@@ -2,8 +2,9 @@
 
 .contents
   .side-bar
-    -current_user.groups.each do |group|
-      =render partial: 'groups/group_boxes', locals: { group: group}
+    .groups
+      -current_user.groups.each do |group|
+        =render partial: 'groups/group_boxes', locals: { group: group}
 
   .right-contents
     .upper-content

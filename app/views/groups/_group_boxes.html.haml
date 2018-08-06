@@ -1,7 +1,6 @@
-.groups
-  = link_to group_messages_path(group) do
-    .group
-      .group__name
-        = group.name
-      .group__message
-        = group.show_last_message
+= link_to group_messages_path(group) do
+  .group
+    .group__name
+      = group.name
+    .group__message
+      = group.show_last_message

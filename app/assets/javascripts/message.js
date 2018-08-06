@@ -40,7 +40,7 @@ $(function(){
       contentType: false,
     })
     .done(function(data){
-      id = data.id
+      var id = data.id
       var html = buildHTML(data);
       $('.upper-content').append(html);
       $('form')[0].reset();
@@ -50,5 +50,30 @@ $(function(){
       alert('error');
     });
   });
+  if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(function() {
+      var message_id = $('.messages:last').data('messageId');
 
-});
+      $.ajax({
+        type: 'GET',
+        url: location.href,
+        data: {
+          message: {id: message_id}
+        },
+        dataType: 'json'
+      })
+      .done(function(messages) {
+        if (messages.length !== 0){
+          console.log(messages)
+          messages.forEach(function(message) {
+            index_html = buildHTML(message);
+            $('.upper-content').append(index_html);
+          });
+        }
+      })
+      .fail(function(messages){
+        alert('自動更新機能に失敗しました。')
+      });
+    }, 5000);
+  };
+})
