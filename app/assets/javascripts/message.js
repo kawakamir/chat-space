@@ -64,7 +64,6 @@ $(function(){
       })
       .done(function(messages) {
         if (messages.length !== 0){
-          console.log(messages)
           messages.forEach(function(message) {
             index_html = buildHTML(message);
             $('.upper-content').append(index_html);
