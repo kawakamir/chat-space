@@ -4,7 +4,7 @@ $(function(){
     if (message.image.url) {
       insertImage = message.image.url;
     }
-    var html = `<div class="messages" id=last_message>
+    var html = `<div class="messages" id=last_message data-message-id="${message.id}">
                   <div class="message">
                     <div class="upper-message">
                       <div class="upper-message__user-name">
@@ -28,7 +28,8 @@ $(function(){
   $("#new_message").on("submit", function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var href = $(this).attr('action')
+    var href = $(this).attr('action');
+
     $.ajax({
       type: 'POST',
       url: href,
