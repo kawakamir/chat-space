@@ -49,8 +49,8 @@ $(function(){
       alert('error');
     });
   });
-  if (window.location.href.match(/\/groups\/\d+\/messages/)) {
-    setInterval(function() {
+  var interval = setInterval(function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
       var message_id = $('.messages:last').data('messageId');
 
       $.ajax({
@@ -72,6 +72,8 @@ $(function(){
       .fail(function(messages){
         alert('自動更新機能に失敗しました。')
       });
-    }, 5000);
-  };
+    } else {
+      clearInterval(interval);
+    }
+  } , 5000);
 })
