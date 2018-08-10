@@ -2,7 +2,8 @@
 =render 'menu'
 .contents
   .side-bar
-    -current_user.groups.each do |group|
-      =render partial: 'group_boxes', locals: { group: group}
+    .groups
+      -current_user.groups.each do |group|
+        =render partial: 'group_boxes', locals: { group: group}
 
 
