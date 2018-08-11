@@ -19,6 +19,15 @@ $(function() {
 
   $("#user-search-field").on("keyup", function() {
     var input = $(this).val();
+    var inputbox_already = []
+    var inputbox = []
+    var inputbox = $("#chat-group-users .chat-group-user").map(function () {
+      return $(this).children("input").val();
+    });
+    for (i = 0; i < inputbox.length; i++) {
+      inputbox_already.push(inputbox[i]);
+    }
+    console.log(inputbox_already);
     $("#user-search-result").empty();
     if (input !== preInput && input.length !== 0) {
       $.ajax ({
@@ -28,9 +37,11 @@ $(function() {
         dataType: 'json'
       })
       .done( function(users) {
-        if (users.length !== 0) {
+        if (users.length !== 0 ) {
           users.forEach(function(user){
-            appendUser(user);
+            if (inputbox_already.indexOf(String(user.id)) == -1) {
+              appendUser(user);
+            }
           });
         }
         else {
@@ -47,7 +58,7 @@ $(function() {
 
 
   function appendUserToGroup(userName, userId) {
-    var group_list = $("turbolinks:#chat-group-users")
+    var group_list = $("#chat-group-users")
     var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${userId}'>
                   <input name='group[user_ids][]' type='hidden' value='${userId}'>
                   <p class='chat-group-user__name'>${userName}</p>
