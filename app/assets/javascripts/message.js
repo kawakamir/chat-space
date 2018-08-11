@@ -49,10 +49,14 @@ $(function(){
       alert('error');
     });
   });
+
+  if($('.messages')[0]){
+    var message_id = $('.messages:last').data('messageId');
+  } else {
+    var message_id = 0;
+  }
   var interval = setInterval(function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)) {
-      var message_id = $('.messages:last').data('messageId');
-
       $.ajax({
         type: 'GET',
         url: location.href,
@@ -74,6 +78,5 @@ $(function(){
       });
     } else {
       clearInterval(interval);
-    }
-  } , 5000);
+  }} , 5000);
 })
