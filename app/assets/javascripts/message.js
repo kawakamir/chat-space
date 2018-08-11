@@ -50,13 +50,14 @@ $(function(){
     });
   });
 
-  if($('.messages')[0]){
-    var message_id = $('.messages:last').data('messageId');
-  } else {
-    var message_id = 0;
-  }
+
   var interval = setInterval(function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      if($('.messages')[0]){
+        var message_id = $('.messages:last').data('messageId');
+      } else {
+        var message_id = 0;
+      }
       $.ajax({
         type: 'GET',
         url: location.href,
